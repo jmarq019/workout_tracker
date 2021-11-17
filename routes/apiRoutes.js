@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {Workout} = require('./models')
 
-
+//getting workout duration in aggregate
 router.get('/api/workouts', async (req, res) =>{
     try{
         const workouts = await Workout.aggregate([
@@ -19,8 +19,5 @@ router.get('/api/workouts', async (req, res) =>{
         res.json(err);
     }
 });
-
-
-
 
 module.exports = router;
