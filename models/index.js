@@ -1,3 +1,1 @@
-const User = require('./exercise');
-
-module.exports = exercise;
+module.exports = {Workout:require('./exercise')};

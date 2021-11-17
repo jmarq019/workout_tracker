@@ -1,32 +1,21 @@
 const router = require('express').Router()
-const exercise = require('../models')
+const path = require('path');
 
 router.get('/', async (req, res) => {
 
-    res.render('stats');
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 
 });
 
 router.get('/exercise', (req, res) =>{
     
-    res.render('exercise')
+    res.sendFile(path.join(__dirname, '../public/exercise.html'));
 
 });
 
 router.get('/stats', (req, res) =>{
     
-    try{
-        const exerciseData = await db.exercise.findAll();
-
-        const post = exerciseData.map((post) => post.get({ plain:true }))
-
-        res.render('/index.html', {
-            post, logged_in: req.session.logged_in
-        })
-    }
-    catch (err){
-        res.status(500).json(err)
-    }
+    res.sendFile(path.join(__dirname, '../public/stats.html'));
 
 });
 
